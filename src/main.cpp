@@ -1,5 +1,7 @@
 #include <Arduino.h>
+
 #include "dhtSensor.h"
+#include "irrigador.h"
 
 void setup() {
   Serial.begin(9600);
@@ -9,16 +11,14 @@ void setup() {
 }
 
 void loop() {
-  int umiSolo = analogRead(A0);
-
   float umiAr;
   float temp;
 
-  
+  regar();
   readDHT(&temp, &umiAr)
   
-  Serial.println(umiSolo); Serial.print("   ----   "); Serial.print(umiAr); Serial.print("  -  ");
-  Serial.println(temp);
+  
+  Serial.print(umiAr); Serial.print("  -  "); Serial.println(temp);
   
   delay(2000);
 
