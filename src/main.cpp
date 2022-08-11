@@ -1,8 +1,5 @@
 #include <Arduino.h>
-
-#include "Usolo.h"
 #include "dhtSensor.h"
-
 
 void setup() {
   Serial.begin(9600);
@@ -12,19 +9,14 @@ void setup() {
 }
 
 void loop() {
-  int umiSolo;
+  int umiSolo = analogRead(A0);
+
   float umiAr;
   float temp;
+
   
-  read(&umiSolo);
-
-  if (isnan(temp) || isnan(umiAr)) {
-    Serial.println("Falha ao ler sensor DHT");
-  }
-  else {
-    readDHT(&temp, &umiAr)
-  }
-
+  readDHT(&temp, &umiAr)
+  
   Serial.println(umiSolo); Serial.print("   ----   "); Serial.print(umiAr); Serial.print("  -  ");
   Serial.println(temp);
   

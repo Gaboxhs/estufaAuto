@@ -1,4 +1,4 @@
 #pragma once
 
-void readDHT(float *temperatura, float *umidadeAr);
 void dhtBegin();
+void readDHT(float *temperatura, float *umidadeAr);
